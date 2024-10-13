@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridSystem.Server", "GridSystem.Server\GridSystem.Server.csproj", "{9E94810B-D470-4C68-A75C-2CC54E01E8D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridSystem.Client", "GridSystem.Client\GridSystem.Client.csproj", "{A26A6BE2-BD86-4143-99DC-D46585B31940}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridSystem.Web", "GridSystem.Web\GridSystem.Web.csproj", "{A32A1DAB-3BFE-4E14-8757-BE30FFFC2D3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E94810B-D470-4C68-A75C-2CC54E01E8D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E94810B-D470-4C68-A75C-2CC54E01E8D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E94810B-D470-4C68-A75C-2CC54E01E8D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E94810B-D470-4C68-A75C-2CC54E01E8D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A26A6BE2-BD86-4143-99DC-D46585B31940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A26A6BE2-BD86-4143-99DC-D46585B31940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A26A6BE2-BD86-4143-99DC-D46585B31940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A26A6BE2-BD86-4143-99DC-D46585B31940}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A32A1DAB-3BFE-4E14-8757-BE30FFFC2D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32A1DAB-3BFE-4E14-8757-BE30FFFC2D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32A1DAB-3BFE-4E14-8757-BE30FFFC2D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32A1DAB-3BFE-4E14-8757-BE30FFFC2D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
