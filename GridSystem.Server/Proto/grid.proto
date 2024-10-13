@@ -1,0 +1,19 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GridSystem.Server";
+
+package grid;
+
+service Grid {
+  rpc SendFile (FileRequest) returns (FileResponse);
+}
+
+message FileRequest {
+  int32 state = 1;
+  string result = 2;
+}
+
+message FileResponse {
+  bytes file = 1;
+  string status = 2;
+}
