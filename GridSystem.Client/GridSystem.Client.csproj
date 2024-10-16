@@ -19,4 +19,10 @@
         <Protobuf Include="Proto\grid.proto" GrpcServices="Client" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
 </Project>
