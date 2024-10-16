@@ -9,7 +9,7 @@ public class ReceiverService
     public ReceiverService()
     {
         //@TODO вынести host в appsettings
-        var channel = GrpcChannel.ForAddress("");
+        var channel = GrpcChannel.ForAddress("https://localhost:7132");
         _gridClient = new Grid.GridClient(channel);
     }
 
@@ -22,6 +22,7 @@ public class ReceiverService
         {
             var response = await GetFile(state, result);
 
+            Console.WriteLine($"Response: {response.Status}");
             if (response.Status == "Empty")
             {
                 break;

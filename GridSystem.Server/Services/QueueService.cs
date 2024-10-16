@@ -17,6 +17,9 @@ public class QueueService(AppContext db) : Grid.GridBase
             return new FileResponse { Status = "Empty" };
         }
 
-        return new FileResponse { File = ByteString.FromBase64(file.Bytes), Status = "Осталось файлов: " + filesCount };
+        db.Files.Remove(file);
+        await db.SaveChangesAsync();
+        var base64 = Convert.ToBase64String(file.Bytes);
+        return new FileResponse { File = ByteString.FromBase64(base64), Status = "Осталось файлов: " + filesCount };
     }
 }

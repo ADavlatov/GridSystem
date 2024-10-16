@@ -1,6 +1,4 @@
-var builder = WebApplication.CreateBuilder(args);
+using GridSystem.Client.Services;var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
-
-app.MapGet("/", () => "Hello World!");
-
+await new ReceiverService().Perform();
 app.Run();
