@@ -7,9 +7,15 @@ namespace GridSystem.Web.Server.Auth.Contexts
     {
         public DbSet<User> Users { get; set; }
 
+        public UserContext()
+        {
+            Database.EnsureCreated();
+        }
+
+        //@TODO заменить на постгресс, для тестов используется sqlite
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("");
+            optionsBuilder.UseSqlite("Data Source=Users.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -17,10 +23,6 @@ namespace GridSystem.Web.Server.Auth.Contexts
             modelBuilder.Entity<User>(entity => 
             {
                 entity.HasKey(x => x.Id);
-                entity.ToTable("YosanUsers");
-                entity.Property(x => x.Username).HasColumnName("Username");
-                entity.Property(x => x.Email).HasColumnName("Email");
-                entity.Property(x => x.Password).HasColumnName("Password");
             });
         }
     }
