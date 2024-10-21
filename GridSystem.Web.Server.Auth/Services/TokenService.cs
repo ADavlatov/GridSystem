@@ -7,6 +7,7 @@ namespace GridSystem.Web.Server.Auth.Services;
 
 public class TokenService
 {
+    //@TODO вынести лайфтам токена в appsettings
     // Генерация JWT токена
     public static JwtSecurityToken GetJwtToken(string userId, int lifetime)
     {
@@ -39,7 +40,7 @@ public class TokenService
 
         public const string Audience = "Yosan.Client";
 
-        const string Key = "mysupersecret_secretkey!123";
+        const string Key = "mysupersecret_secretkey!123sadgqhANRTFWsfBWDRgtwafasfdfg";
 
         public static SymmetricSecurityKey GetSymmetricSecurityKey() => new(Encoding.UTF8.GetBytes(Key));
     }

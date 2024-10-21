@@ -10,7 +10,7 @@ public class Token(UserContext db)
     {
         var result = await IsWrongToken(request.AccessToken);
 
-        if (result ==  "Invalid token.")
+        if (result == "Invalid token.")
         {
             return new TokenValidationResponse { IsSucceed = false, Status = 400, Error = result };
         }
@@ -22,7 +22,7 @@ public class Token(UserContext db)
     {
         var result = await IsWrongToken(request.RefreshToken);
 
-        if (result ==  "Invalid token.")
+        if (result == "Invalid token.")
         {
             return new RefreshTokenResponse { IsSucceed = false, Status = 400, Error = result };
         }
@@ -43,9 +43,8 @@ public class Token(UserContext db)
     private async Task<string> IsWrongToken(string token)
     {
         var jwtHandler = new JwtSecurityTokenHandler();
-        var user = await db.Users.FirstOrDefaultAsync(x =>
-            x.Id.ToString() == jwtHandler.ReadJwtToken(token).Claims.First().ToString());
-
+        var userId = jwtHandler.ReadJwtToken(token).Claims.First().Value;
+        var user = await db.Users.FirstOrDefaultAsync(x => x.Id == Guid.Parse(userId));
         if (user == null)
         {
             return "Invalid token.";

@@ -16,6 +16,7 @@ namespace GridSystem.Web.Server.Auth.Services.ProtobufMethods
                 return new LogInResponse
                 {
                     IsSucceed = false,
+                    Status = 400,
                     Error = errors
                 };
             }
@@ -26,9 +27,10 @@ namespace GridSystem.Web.Server.Auth.Services.ProtobufMethods
             return new LogInResponse
             {
                 IsSucceed = true,
-                AccessToken = new JwtSecurityTokenHandler().WriteToken(TokenService.GetJwtToken(request.Username, 1)),
+                Status = 200,
+                AccessToken = new JwtSecurityTokenHandler().WriteToken(TokenService.GetJwtToken(user.Id.ToString(), 1)),
                 RefreshToken =
-                    new JwtSecurityTokenHandler().WriteToken(TokenService.GetJwtToken(request.Username, 4320)),
+                    new JwtSecurityTokenHandler().WriteToken(TokenService.GetJwtToken(user.Id.ToString(), 4320)),
                 UserId = user.Id.ToString()
             };
         }

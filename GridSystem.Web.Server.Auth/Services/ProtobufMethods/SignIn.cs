@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using GridSystem.Web.Server.Auth.Contexts;
 using GridSystem.Web.Server.Auth.Models;
 using GridSystem.Web.Server.Auth.Services.ValidationMethods;
+using Microsoft.EntityFrameworkCore;
 
 namespace GridSystem.Web.Server.Auth.Services.ProtobufMethods
 {
@@ -16,6 +17,7 @@ namespace GridSystem.Web.Server.Auth.Services.ProtobufMethods
                 return new SignInResponse
                 {
                     IsSucceed = false,
+                    Status = 400,
                     Error = errors
                 };
             }
@@ -27,12 +29,15 @@ namespace GridSystem.Web.Server.Auth.Services.ProtobufMethods
             await db.Users.AddAsync(user);
             await db.SaveChangesAsync();
 
+            var userFromDb = await db.Users.FirstOrDefaultAsync(x => x.Username == user.Username);
+
             return new SignInResponse
             {
                 IsSucceed = true,
-                AccessToken = new JwtSecurityTokenHandler().WriteToken(TokenService.GetJwtToken(request.Username, 1)),
+                Status = 200,
+                AccessToken = new JwtSecurityTokenHandler().WriteToken(TokenService.GetJwtToken(userFromDb.Id.ToString(), 1)),
                 RefreshToken =
-                    new JwtSecurityTokenHandler().WriteToken(TokenService.GetJwtToken(request.Username, 15)),
+                    new JwtSecurityTokenHandler().WriteToken(TokenService.GetJwtToken(userFromDb.Id.ToString(), 15)),
                 UserId = user.Id.ToString()
             };
         }

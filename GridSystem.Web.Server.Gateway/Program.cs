@@ -1,4 +1,4 @@
-var builder = WebApplication.CreateBuilder(args);
+using GridSystem.Web.Server.Gateway.Services;var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -16,5 +16,7 @@ app.UseSwaggerUI(options =>
 });
 
 app.MapSwagger();
+
+await new RouterService().Execute(app);
 
 app.Run();
