@@ -9,7 +9,7 @@ public class ReceiverService
     public ReceiverService()
     {
         //@TODO вынести host в appsettings
-        var channel = GrpcChannel.ForAddress("https://localhost:443");
+        var channel = GrpcChannel.ForAddress("https://localhost:7132");
         _gridClient = new Grid.GridClient(channel);
     }
 
