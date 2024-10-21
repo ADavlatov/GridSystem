@@ -1,6 +1,6 @@
 namespace GridSystem.Web.Server.Auth.Models;
 
-public class User
+public record User
 {
     public Guid Id { get; set; }
     public string Username { get; set; }
