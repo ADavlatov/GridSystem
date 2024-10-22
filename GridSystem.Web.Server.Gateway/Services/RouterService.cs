@@ -13,7 +13,7 @@ public class RouterService
         var authChannel = GrpcChannel.ForAddress("https://localhost:7129");
         _authClient = new Auth.AuthClient(authChannel);
     }
-    
+
     public async Task Execute(WebApplication app)
     {
         app.MapPost("/api/v1/auth/signIn",
@@ -72,5 +72,17 @@ public class RouterService
 
                 return await _authClient.GetAccessTokenAsync(request);
             });
+
+        app.MapPost("api/v1/core/results", () =>
+        {
+
+        });
+
+        app.MapGet("/api/v1/core/status", () =>
+        {
+            Console.WriteLine("status");
+
+            return true;
+        });
     }
 }
