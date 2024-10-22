@@ -11,6 +11,7 @@ service Grid {
 message FileRequest {
   int32 state = 1;
   string result = 2;
+  string fileId = 3;
 }
 
 message FileResponse {
