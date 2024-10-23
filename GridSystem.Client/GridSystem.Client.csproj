@@ -27,4 +27,12 @@
       </Content>
     </ItemGroup>
 
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="build\appsettings.Development.json" />
+      <_ContentIncludedByDefault Remove="build\appsettings.json" />
+      <_ContentIncludedByDefault Remove="build\GridSystem.Client.deps.json" />
+      <_ContentIncludedByDefault Remove="build\GridSystem.Client.runtimeconfig.json" />
+    </ItemGroup>
+
 </Project>
