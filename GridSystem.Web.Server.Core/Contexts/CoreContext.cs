@@ -1,7 +1,9 @@
-using GridSystem.Web.Server.Auth.Models;
+using GridSystem.Web.Server.Core.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GridSystem.Web.Server.Auth.Contexts
+namespace GridSystem.Web.Server.Core.Contexts;
+
+public class CoreContext : DbContext
 {
     public class UserContext : DbContext
     {
@@ -27,4 +29,4 @@ namespace GridSystem.Web.Server.Auth.Contexts
             });
         }
     }
-}
+ }

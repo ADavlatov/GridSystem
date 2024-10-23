@@ -1,4 +1,4 @@
-﻿namespace GridSystem.Web.Server.Core.Models;
+namespace GridSystem.Web.Server.Auth.Models;
 
 public record Result
 {
