@@ -1,4 +1,9 @@
-using GridSystem.Web.Server.Core.Services;var builder = WebApplication.CreateBuilder(args);
+using GridSystem.Web.Server.Core.Contexts;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<CoreContext>();
+
 var app = builder.Build();
-await new RouterService(app).Execute();
+
 app.Run();
