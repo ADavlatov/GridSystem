@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option csharp_namespace = "GridSystem.Web.Server.Core";
+
+package core;
+
+service Core {
+  rpc SetStatus (SetStatusRequest) returns (SetStatusResponse);
+  rpc GetUserAttributes (GetAttributesRequest) returns (GetAttributesResponse);
+}
+
+message SetStatusRequest {
+  string userId = 1;
+  string key = 2;
+  int32 status = 3;
+}
+
+message SetStatusResponse {
+  bool isSucceed = 1;
+  int32 status = 2;
+  string error = 3;
+}
+
+message GetAttributesRequest {
+  string userId = 1;
+  string key = 2;
+}
+
+message GetAttributesResponse {
+  bool isSucceed = 1;
+  int32 status = 2;
+  string error = 3;
+  string key = 4;
+  int32 userStatus = 5;
+}
