@@ -20,5 +20,5 @@
     <ItemGroup>
         <Protobuf Include="Proto\auth.proto" GrpcServices="Server" />
     </ItemGroup>
-
+    
 </Project>

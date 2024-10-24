@@ -75,14 +75,12 @@ public class RouterService
 
         app.MapPost("api/v1/core/results", () =>
         {
-
+            
         });
 
         app.MapGet("/api/v1/core/status", () =>
         {
-            Console.WriteLine("status");
-
-            return true;
+            
         });
     }
 }
