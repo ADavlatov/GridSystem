@@ -25,4 +25,8 @@
         <Protobuf Include="Proto\auth.proto" GrpcServices="Client" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Services\Validators\Core\" />
+    </ItemGroup>
+
 </Project>
