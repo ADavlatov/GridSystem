@@ -6,7 +6,8 @@ package core;
 
 service Core {
   rpc SetStatus (SetStatusRequest) returns (SetStatusResponse);
-  rpc GetUserAttributes (GetAttributesRequest) returns (GetAttributesResponse);
+  rpc GetStatus (GetStatusRequest) returns (GetStatusResponse);
+  rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse);
 }
 
 message SetStatusRequest {
@@ -21,15 +22,24 @@ message SetStatusResponse {
   string error = 3;
 }
 
-message GetAttributesRequest {
+message GetStatusRequest {
   string userId = 1;
   string key = 2;
 }
 
-message GetAttributesResponse {
+message GetStatusResponse {
   bool isSucceed = 1;
   int32 status = 2;
   string error = 3;
-  string key = 4;
-  int32 userStatus = 5;
+  int32 userStatus = 4;
+}
+
+message ValidateTokenRequest {
+  string token = 1;
+}
+
+message ValidateTokenResponse {
+  bool isSucceed = 1;
+  int32 status = 2;
+  string error = 3;
 }
