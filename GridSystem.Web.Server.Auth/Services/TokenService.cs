@@ -36,9 +36,9 @@ public class TokenService
 
     private class AuthOptions
     {
-        public const string Issuer = "Yosan.Auth";
+        public const string Issuer = "GridSystem.Auth";
 
-        public const string Audience = "Yosan.Client";
+        public const string Audience = "GridSystem.Client";
 
         const string Key = "mysupersecret_secretkey!123sadgqhANRTFWsfBWDRgtwafasfdfg";
 
